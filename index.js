@@ -104,7 +104,7 @@ function drawStickFigure(el, x, y, facing) {
 
 }
 
-// My Code
+/// My Code
 
 
 function drawLines(canvas) {
@@ -136,13 +136,56 @@ function drawTriangle(canvas, x1, y1, x2, y2, x3, y3){
   c.fill();
 }
 
-function drawGrid(){
+function drawGrid(canvas){
+  let c = canvas.getContext("2d");
+
+
+  for(let x=0; x < canvas.width; x = x+50) {
+    c.beginPath();
+    c.moveTo(x,0);
+    c.lineTo(x, canvas.height);
+    c.stroke();
+}
+  for(let y=0; y < canvas.height; y = y+50){
+    c.beginPath();
+    c.moveTo(0,y);
+    c.lineTo(canvas.width, y);
+    c.stroke();
+  }
 
 }
 
-function drawCzechFlag(){}
+function drawCzechFlag(canvas){
+  let c = canvas.getContext("2d");
 
-function drawSpartacus(){}
+  c.beginPath();
+  c.moveTo(0,0);
+  c.fillStyle = "#55F";
+  c.lineTo(canvas.width/2, canvas.height/2);
+  c.lineTo(0, canvas.height);
+  c.fill();
+
+  c.beginPath();
+  c.moveTo(0, canvas.height);
+  c.fillStyle = "#F00";
+  c.lineTo(canvas.width/2, canvas.height/2);
+  c.lineTo(canvas.width, canvas.height/2);
+  c.lineTo(canvas.width, canvas.height);
+  c.fill();
+
+}
+
+function drawSpartacus(canvas){
+  let c = canvas.getContext("2d");
+
+  c.beginPath();
+  c.lineWidth = 2;
+  c.moveTo((canvas.width/2)-10, (canvas.height/2)+15);
+  c.lineTo((canvas.width/2)-50, (canvas.height/2));
+  c.stroke();
+  drawStickFigure(canvas);
+
+}
 
 function drawEyes(){}
 
